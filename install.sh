@@ -9,7 +9,7 @@ if [ -f /etc/os-release ]
 then
     OS=`cat /etc/os-release | grep '^ID=' | sed 's/ID=//g' | sed 's/"//g'`
     case $OS in
-    ubuntu)
+    ubuntu | neon)
         if hash curl 2> /dev/null || ! hash jq 2> /dev/null
         then
             $SUDO_FLAG apt-get update -q=2
