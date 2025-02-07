@@ -36,7 +36,7 @@ then
         SYSTEM_VERSION=$VERSION_ID
     fi
     case $ID in
-    ubuntu)
+    ubuntu | neon)
         SYSTEM_NAME="ubuntu"
         if ! hash curl 2> /dev/null || ! hash realpath 2> /dev/null || ! hash wget 2> /dev/null || ! hash jq 2> /dev/null
         then
@@ -123,7 +123,7 @@ init-env() {
     fi
     enable-swiftbox
     case $SYSTEM_NAME in
-    ubuntu)
+    ubuntu | neon)
         $SUDO_FLAG apt-get update
         case $SYSTEM_VERSION in
         16.04 | 18.04 | 20.04 | 22.04) ;;
